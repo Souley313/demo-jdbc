@@ -1,16 +1,12 @@
 package fr.diginamic.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
-public class TestUpdate {
+public class TestDelete {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-
+		
 		ResourceBundle database = ResourceBundle.getBundle("database");
 
 		Class.forName(database.getString("database.driver"));
@@ -28,7 +24,7 @@ public class TestUpdate {
 			try (Statement statement = uneConnexion.createStatement();
 					ResultSet resultSet = statement.executeQuery("select * from  FOURNISSEUR");) {
 
-				int nbLignesImpactees = statement.executeUpdate("update FOURNISSEUR set nom= 'La Maison de la Peinture' where id = 4");
+				int nbLignesImpactees = statement.executeUpdate("delete from FOURNISSEUR where id = 4");
 
 				uneConnexion.commit();
 			} catch (SQLException e) {
@@ -38,4 +34,7 @@ public class TestUpdate {
 
 	}
 
-}
+
+	}
+
+
