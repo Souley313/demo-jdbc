@@ -9,7 +9,7 @@ public class TestConnexionJdbc {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		
+
 		ResourceBundle database = ResourceBundle.getBundle("database");
 		Class.forName(database.getString("database.driver"));
 
@@ -19,5 +19,5 @@ public class TestConnexionJdbc {
 		System.out.println("connexion : " + maConnection);
 
 		maConnection.close();
-}
+	}
 }
